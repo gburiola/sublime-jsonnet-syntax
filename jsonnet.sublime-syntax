@@ -1,0 +1,105 @@
+%YAML 1.2
+---
+name: jsonnet
+file_extensions: [jsonnet, libsonnet]
+scope: source.jsonnet
+
+contexts:
+  main:
+    - match: \b(\d+([Ee][+-]?\d+)?)\b
+      scope: constant.numeric.jsonnet
+
+    - match: \b\d+[.]\d*([Ee][+-]?\d+)?\b
+      scope: constant.numeric.jsonnet
+
+    - match: \b[.]\d+([Ee][+-]?\d+)?\b
+      scope: constant.numeric.jsonnet
+
+    - match: \bstd[.](acos|asin|atan|ceil|char|codepoint|cos|exp|exponent)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](filter|floor|force|length|log|makeArray|mantissa)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](objectFields|objectHas|pow|sin|sqrt|tan|type|thisFile)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](acos|asin|atan|ceil|char|codepoint|cos|exp|exponent)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](abs|assertEqual|escapeString(Bash|Dollars|Json|Python))\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](filterMap|flattenArrays|foldl|foldr|format|join)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](lines|manifest(Ini|Python(Vars)?)|map|max|min|mod)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](set|set(Diff|Inter|Member|Union)|sort)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](range|split|stringChars|substr|toString|uniq)\b
+      scope: support.function.jsonnet
+
+    - match: \b[$]\b
+      scope: variable.language.jsonnet
+
+    - match: \b[a-zA-Z_][a-z0-9A-Z_]*\s*(\([^)]*\))?\s*+?::?:?
+      scope: entity.name.function.jsonnet
+
+    - match: \b(import|importstr)\b
+      scope: storage.type.jsonnet
+
+    - match: \b(function)\b
+      scope: keyword.other.jsonnet
+
+    - match: \b(self|super)\b
+      scope: variable.language.jsonnet
+
+    - match: \b(if|then|else|for|in)\b
+      scope: keyword.control.jsonnet
+
+    - match: \b(local|tailstrict)\b
+      scope: keyword.other.jsonnet
+
+    - match: \b(true|false|null)\b
+      scope: constant.language.jsonnet
+
+    - match: \b(error|assert)\b
+      scope: keyword.control.jsonnet
+
+    - match: //.*$
+      scope: comment.line.jsonnet
+
+    - match: '#.*$'
+      scope: comment.block.jsonnet
+
+    - match: /\*
+      push: comment
+
+    - match: \|\|\|
+      push: unquoted
+
+    - match: '"'
+      push: string
+
+  comment:
+    - meta_scope: comment.block.jsonnet
+    - match: \*/
+      pop: true
+
+  unquoted:
+    - meta_scope: string.unquoted.block.jsonnet
+    - match: \|\|\|
+      pop: true
+
+  string:
+    - meta_scope: string.double.jsonnet
+    - match: '"'
+      pop: true
+    - match: \\(["\\/bfnrt]|(u[0-9a-fA-F]{4}))
+      scope: constant.character.escape.jsonnet
+    - match: \\[^"\\/bfnrtu]
+      scope: invalid.illegal.jsonnet
+
