@@ -1,7 +1,7 @@
 # sublime-jsonnet-syntax
 [Jsonnet](http://jsonnet.org/) syntax highlighting for [Sublime text 3](https://www.sublimetext.com/)
 
-Supports file extensions **jsonnet** and **libjsonnet**
+Supports file extensions `[jsonnet, libsonnet, libjsonnet]`
 
 ![screenshot of Jsonnet syntax highlighting](https://raw.githubusercontent.com/gburiola/sublime-jsonnet-syntax/master/screenshot.png)
 

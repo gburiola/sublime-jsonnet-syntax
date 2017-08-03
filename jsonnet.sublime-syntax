@@ -1,7 +1,7 @@
 %YAML 1.2
 ---
 name: jsonnet
-file_extensions: [jsonnet, libsonnet]
+file_extensions: [jsonnet, libsonnet, libjsonnet]
 scope: source.jsonnet
 
 contexts:
@@ -24,9 +24,6 @@ contexts:
     - match: \bstd[.](objectFields|objectHas|pow|sin|sqrt|tan|type|thisFile)\b
       scope: support.function.jsonnet
 
-    - match: \bstd[.](acos|asin|atan|ceil|char|codepoint|cos|exp|exponent)\b
-      scope: support.function.jsonnet
-
     - match: \bstd[.](abs|assertEqual|escapeString(Bash|Dollars|Json|Python))\b
       scope: support.function.jsonnet
 
@@ -42,10 +39,16 @@ contexts:
     - match: \bstd[.](range|split|stringChars|substr|toString|uniq)\b
       scope: support.function.jsonnet
 
+    - match: \bstd[.](base64|base64Decode|base64DecodeBytes|count|endsWith|extVar|md5|mergePatch)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](objectFieldsAll|objectHasAll|parseInt|prune|splitLimit|startsWith)\b
+      scope: support.function.jsonnet
+
     - match: \b[$]\b
       scope: variable.language.jsonnet
 
-    - match: \b[a-zA-Z_][a-z0-9A-Z_]*\s*(\([^)]*\))?\s*+?::?:?
+    - match: \b[a-zA-Z_][a-z0-9A-Z_]*\s*(\([^)]*\))?\s*\+?::?:?
       scope: entity.name.function.jsonnet
 
     - match: \b(import|importstr)\b
