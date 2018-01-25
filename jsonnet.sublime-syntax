@@ -18,7 +18,7 @@ contexts:
     - match: \bstd[.](acos|asin|atan|ceil|char|codepoint|cos|exp|exponent)\b
       scope: support.function.jsonnet
 
-    - match: \bstd[.](filter|floor|force|length|log|makeArray|mantissa)\b
+    - match: \bstd[.](filter|floor|length|log|makeArray|mantissa)\b
       scope: support.function.jsonnet
 
     - match: \bstd[.](objectFields|objectHas|pow|sin|sqrt|tan|type|thisFile)\b
@@ -30,7 +30,7 @@ contexts:
     - match: \bstd[.](filterMap|flattenArrays|foldl|foldr|format|join)\b
       scope: support.function.jsonnet
 
-    - match: \bstd[.](lines|manifest(Ini|Python(Vars)?)|map|max|min|mod)\b
+    - match: \bstd[.](lines|manifest(Ini|JsonEx|Python(Vars)?)|map|max|min|mod)\b
       scope: support.function.jsonnet
 
     - match: \bstd[.](set|set(Diff|Inter|Member|Union)|sort)\b
@@ -43,6 +43,9 @@ contexts:
       scope: support.function.jsonnet
 
     - match: \bstd[.](objectFieldsAll|objectHasAll|parseInt|prune|splitLimit|startsWith)\b
+      scope: support.function.jsonnet
+
+    - match: \bstd[.](equals|isArray|isBoolean|isFunction|isNumber|isObject|isString|native|strReplace)\b
       scope: support.function.jsonnet
 
     - match: \b[$]\b
