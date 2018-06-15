@@ -89,6 +89,9 @@ contexts:
 
     - match: '"'
       push: string
+      
+    - match: "\'"
+      push: single_string
 
   comment:
     - meta_scope: comment.block.jsonnet
@@ -109,3 +112,11 @@ contexts:
     - match: \\[^"\\/bfnrtu]
       scope: invalid.illegal.jsonnet
 
+  single_string:
+    - meta_scope: string.double.jsonnet
+    - match: "\'"
+      pop: true
+    - match: \\(["\\/bfnrt]|(u[0-9a-fA-F]{4}))
+      scope: constant.character.escape.jsonnet
+    - match: \\[^"\\/bfnrtu]
+      scope: invalid.illegal.jsonnet
