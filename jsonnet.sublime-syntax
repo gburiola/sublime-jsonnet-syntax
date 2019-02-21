@@ -36,7 +36,7 @@ contexts:
     - match: \bstd[.](mantissa|map|mapWithIndex|mapWithKey|max|md5|mergePatch|min|mod)\b
       scope: support.function.jsonnet
 
-    - match: \bstd[.](objectFields|objectFieldsAll|objectHas|objectHasAll|parseInt|pow|prune|range)\b
+    - match: \bstd[.](objectFields|objectFieldsAll|objectHas|objectHasAll|objectHasEx|parseHex|parseInt|parseJson|parseOctal|pow|prune|range)\b
       scope: support.function.jsonnet
 
     - match: \bstd[.](set|setDiff|setInter|setMember|setUnion|sign|sin|sort|split|splitLimit|sqrt)\b
@@ -45,7 +45,7 @@ contexts:
     - match: \bstd[.](startsWith|stringChars|strReplace|substr|tan|toString|type|uniq)\b
       scope: support.function.jsonnet
 
-    - match: \bstd[.](native|thisFile)\b
+    - match: \bstd[.](native|thisFile|decodeUTF8|deepJoin|encodeUTF8|find|nativeExt|trace)\b
       scope: support.function.jsonnet
 
     - match: \b[$]\b
@@ -89,7 +89,7 @@ contexts:
 
     - match: '"'
       push: string
-      
+
     - match: "\'"
       push: single_string
 
